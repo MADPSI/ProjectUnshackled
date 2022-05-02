@@ -1,2 +1,45 @@
-# ProjectUnshackled
- A mod for Spore: Galactic Adventures (2009)
+## Overview
+**Unshackled** is an experimental part mod introducing components that work by exploiting certain developer oversights in Spore's animation and part-interaction systems. It consists of *12* specialised parts that have various unique functions, most of which are shared between a spherical Node and a simple Limb.
+
+Note: these parts are experimental and are prone to causing errors and bugs. Many of the Limb parts, namely, are prone to causing crashes if used incorrectly. Particular cases will be discussed later. You have been warned.
+
+## Features
+
+### Nodes
+Nodes are simple spheres that do not have any assigned material, meaning that they blend into the skin of the Creature in Build Mode; become bright white and unshaded in Paint and Test Drive Modes; and are invisible outside of the editor. Nodes also have a tendency to not work properly, refusing to animate outside the editor due to the differences between Creature Stage/Adventure Mode and Test Drive. Nodes can be stacked on any surface of the creature, and can by default have any part stacked onto them that doesn't need a limb to attach to. Nodes also tend to function oddly if multiple version of the same or different node are stacked on the same limb or part.
+#### Hand Node. 
+* The Hand node is used to turn the part it's placed on into an arm-type limb. This works best when paired with the Stacker mod to create complex assemblies. It also provides the part with the Grasper ability, meaning it can pick objects up. This is, along with the Foot node, the most obvious instance of animations not working properly outside of the editor, although it can still be used to pick objects up.
+### Foot Node. 
+* Similar to the Hand Node, the foot node exploits the same bug in the animation system to turn parts that it's stacked on into leg-type limbs. The position of the node relative to the floor of the editor is considered the contact point, and the node will treat that as the floor, producing footprints and dust when moving. The node will not snap to the ground, instead remaining where it is so long as there are parts beneath the contact point.
+### Wing Node. 
+* The wing node is strikingly different to previous two entries, needing to be placed at the beginning of a stack of parts to achieve it's affect. The node, when placed, will grant the Glide ability, which when activated will make the node flap as though it were a wing. Unlike wings, however, which don't interact well with stacked parts; the wing node, when it flaps, will cause the stacked parts to flap with it, so long as it is the only node in the stack. This allows for the creation of large single-segment wings.
+### Socket Node. 
+* The socket node also constitutes a departure from the norm. This one has a particularly peculiar function. It can have any part that requires a limb to be placed, such as feet or hands, to be fitted into it. It can then be placed anywhere on any other surface, sort of like an alternate take on the Foot and Hand Nodes. It can also be rotated while still having those parts fitted into it, including feet that otherwise cannot be rotated without the use of other mods. Note: Exoskeletal and other Non-Skin Limbs can be fitted into these sockets, but become unparented from the body, causing them to become blank and disappear when the Creature animates.
+### Skin Node. 
+* The skin node has no unique characteristics that set it apart from its ilk, instead only being useful for bridging parts that can't normally be stacked on eachother, without the superfluous animations and abilities that the other provide. While made largely obsolete by the Stacker mod, it allows for certain other stacking possibilities that don't exist within that mod, such as being able to have mouths and other custom types of part stacked on it.
+### Limb Position-locking Node
+* The LPN is node designed to prevent limb segments from being moved. Joints that the node sits on will be kinematically locked, meaning that they will remain in place and will not be affected by changes to angulation made further up the limb. It also prevents the limb from being moved while the spine is being resized, and stops the spine from being shortened past the point the affected limb connects to the body.
+
+## Limbs
+Unshackled Limbs function similarly to Nodes, each providing an ability or capability to make them behave in an usual way compared to normal limbs. Limbs are especially prone to bugs, meaning that extreme caution must be taken when using them. Each limb can also have its endpoint scaled to absurd degrees, where extremely small joints will eventually cause the limb to be "detached" from the body and become invisible, albeit still technically existing, unlike the case mentioned previously with the Socket Node.
+### Foot Limb. 
+* By default, limbs that touch the ground in Spore and have no other type of part attatched will be treated as though they have feet attached to them. This is because of invisible "Dummy Blocks" that exist at the end of limbs when first taken off the palette. The foot-limb exploits this by being classified itself as foot, and therefore functions similar to its Node counterpart. Similarly, in normal creating, these limbs cease to act as feet even when non-limb-reliant parts are placed on them. The Foot Limb does not have this issue, allowing for complicated feet, including having more limbs attached to it that will act as an extension to it.
+### Wing Limb. 
+* The wing limb functions near identically to its node counterpart, the biggest obvious difference being that it can also have limbs attached to it. Limbs attached to it also flap with it, and thanks to the way most limbs work, they'll "jiggle" in a physically realistic manner, allowing for complicated assemblies of wings that animate nicely, when the Node variant simply won't cut it. The limbs also has its own idiosyncrasies regarding how it interacts with other parts. For example, attached limbs tend not to work if their ending point is lower down relative to the point where it attaches to the wing limb, in vertical space. If the wing cannot flap the attached limb properly, the wing limb itself will deform strangely when triggered.
+### Mouth Limb - Volatile. 
+* The mouth limb behaves as a head for the creature, but does not have an associated diet or abilities. It is also extremely prone to causing crashes if misused. Causes vary, but recurring causes seem to be the presence of other limbs on the creature, being moved or dragged to quickly or adding to many of parts onto them. Use this part at your own risk.
+### Rigid Limb - Volatile . 
+* The rigid limb uses the same properties as the Creature's spine, and therefore does not "jiggle" under any circumstances. This is useful for making solid structures to build off of, but can cause strange bodily deformations when used in conjunction with other animating parts. Do not use this part with the Wing Limb or Mouth Limb, as doing so is a major crash hazard, partly due to how, if the two cannot properly animate the attached part, it will cause a negative feedback loop and cause a failure.
+### Bump Limb - Volatile. 
+* This limb is honestly little more than a regular limb with the length it can be stretched to locked to an absurdly small value. This effectively allows for one to create flesh bumps and add spherical masses to limbs. While not prone to crashing the game, the volatility of the part relates to how difficult it can be to get the hang of it. The end point and connection point of the limb occupy nearly the same space, and the end point can never be smaller than the contact point with the skin, therefore requiring you to wrestle with the limb to be able to scale and move both points. As with many of the parts, there is a certain reward to taking the associated risk.
+### Parentless Limb - Tricky.
+* This limb can, as the name implies, be unparented from the body, allowing it to be moved anywhere around the editor environment -including inside the body of the creature- while remaining interactable. Once it is sufficiently far away from the skin of the creature, it will become invisible, but can be revealed by placing another skin-based limb in proximity to it. Skin-based limbs attatched to it likewise become invisible if attatched and not contacting the skin. This part in some manners replicates the Invisible Limbs glitch, as parts placed on it do not dissapear with the limb when it is detatched. Similarly, part-like limbs such the Exoskeletal ones do not become invisible.
+
+The mod is not currently slated to receive major updates, but with the ever-improving quality of Spore modding tools, do not discount the possibility entirely. It also is required to be installed via the Spore ModAPI Easy Installer, available as part of the ModAPI Launcher Kit, available here: http://davoonline.com/sporemodder/rob55rod/ModAPI/Public/.
+
+## Changelog
+
+#### Versions 0.8.1 
+* Initial GitHub release
+* Added *Limb Position-locking Node* and *Parentless Limb*.
+* Removed superflous junk files from previous experiments.
