@@ -1,0 +1,5 @@
+<mod displayName="Unshackled" unique="PSI_106_Unshackled" description="This mod adds a variety of special parts to the Creature Editor with peculiar effects. Read the instructions before use. Note: This mod replaces the Unparented Foot and Hand mod." installerSystemVersion="1.0.1.0" hasCustomInstaller="false" dllsBuild="2.5.20">
+	<prerequisite game="GalacticAdventures">!PSI_106_Unshackled_v0-8-1.package</prerequisite>
+	<remove game="GalacticAdventures">*PSI_106_Unshackled*</remove>
+	<remove game="GalacticAdventures">ce_psi_unparented_foot_and_hand.package</remove>
+</mod>
